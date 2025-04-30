@@ -36,6 +36,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               title = value;
             },
           ),
+      
           const SizedBox(
             height: 16,
           ),

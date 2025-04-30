@@ -41,7 +41,7 @@ class NoteItem extends StatelessWidget {
                     icon:const  FaIcon(FontAwesomeIcons.trash),
                     color: Colors.black,
                     onPressed: () {
-                     
+                     noteModel.delete();
                     }),
               ),
             ),
