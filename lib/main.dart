@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/constent.dart';
+import 'package:notes_app/cubits/cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
+import 'package:notes_app/simple_bloc_observer.dart';
 import 'package:notes_app/views/note_view.dart';
 
-void main() async{
+void main() async {
   await Hive.initFlutter();
   //! بدي افتح box يلي بدي اخزن في الداتا
-    await Hive.openBox(kNotesBox);
-    Hive.registerAdapter(NoteModelAdapter());
+  
+  Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>(kNotesBox);
+  Bloc.observer=SimpleBlocObserver();
   runApp(const NotesApp());
 }
 
@@ -22,12 +27,10 @@ class NotesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Notes App',
       theme: ThemeData(
-      fontFamily: 'Poppins',
+        fontFamily: 'Poppins',
         brightness: Brightness.dark,
-
       ),
       home: const NoteView(),
     );
   }
 }
-
