@@ -22,15 +22,16 @@ class AddNoteButtomSheet extends StatelessWidget {
           return AbsorbPointer(
             absorbing: state is AddNoteCubitLoading,
             child: SingleChildScrollView(
-             child: Padding(
-  padding: EdgeInsets.only(
-    left: 16,
-    right: 16,
-    //!
-    bottom: MediaQuery.of(context).viewInsets.bottom,
-  ),
-  child:const AddNoteForm(),
-),),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  //!
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: const AddNoteForm(),
+              ),
+            ),
           );
         }));
   }
