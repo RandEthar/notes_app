@@ -13,7 +13,7 @@ class NoteItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,MaterialPageRoute(builder:(context){
-           return const EditNoteView ();
+           return  EditNoteView (noteModel:noteModel ,);
         }));
       },
       child: Container(
@@ -44,7 +44,7 @@ class NoteItem extends StatelessWidget {
                     color: Colors.black,
                     onPressed: () {
                      noteModel.delete();
-                     context.read<NoteCubit>().featchAllNotes();
+                     context.read<NoteCubit>().fetchAllNotes();
                     }),
               ),
             ),

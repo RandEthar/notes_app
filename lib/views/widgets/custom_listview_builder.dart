@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/note_cubit/note_cubit.dart';
@@ -14,7 +16,8 @@ class CustomListViewBuilder extends StatelessWidget {
     return BlocBuilder<NoteCubit, NoteState>(
       
       builder: (context, state) {
-         List<NoteModel>notes=context.read<NoteCubit>().notes??[];
+         List<NoteModel>notes=context.read<NoteCubit>().notes!;
+         log("Note lenth ${notes.length}");
         return Expanded(
             child: ListView.builder(
               itemCount: notes.length,

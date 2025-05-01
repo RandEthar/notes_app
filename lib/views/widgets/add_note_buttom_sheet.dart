@@ -14,7 +14,7 @@ class AddNoteButtomSheet extends StatelessWidget {
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
             listener: (context, state) {
           if (state is AddNoteCubitSuccess) {
-             context.read<NoteCubit>().featchAllNotes();
+             context.read<NoteCubit>().fetchAllNotes();
             Navigator.of(context).pop();
              
           }

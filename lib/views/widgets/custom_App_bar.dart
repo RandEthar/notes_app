@@ -3,21 +3,28 @@ import 'package:notes_app/views/widgets/custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
-    super.key, required this.text, required this.icon,
+    super.key,
+    required this.text,
+    required this.icon,
+    this.onPressed,
   });
-   final String text;
-    final IconData icon;
+  final String text;
+  final IconData icon;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-       Text(
+        Text(
           text,
-          style:const TextStyle(fontSize: 25, color: Colors.white),
+          style: const TextStyle(fontSize: 25, color: Colors.white),
         ),
-       const Spacer(),
-        CustomSearchIcon(icon:icon ,)
+        const Spacer(),
+        CustomSearchIcon(
+          onPressed: onPressed,
+          icon: icon,
+        )
       ],
     );
   }
